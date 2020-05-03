@@ -1,1 +1,1 @@
-This is kinda poetry web-site
+This is kinda poetry website
