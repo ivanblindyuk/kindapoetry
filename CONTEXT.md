@@ -30,6 +30,8 @@ _Avoid_: Category, collection, series
 
 **Announcement**:
 Notice of an event the **Poet** will take part in, published before the event happens, carrying a promotional image. Has its own dedicated, permanent page, like a **Poem**.
+
+An **Announcement** is **upcoming** while its **Event** is still ahead (by Kyiv date) and **past** once the **Event** has happened — a state nobody sets by hand; it follows from the **Event**'s date and changes on its own at the nightly rebuild. Only **upcoming Announcements** appear on the **news page**; a **past Announcement** leaves the feed, since a notice of something that has already happened is no longer news to anybody. It is never deleted: its page stays at its own permanent address forever, so links **Readers** have already **Shared** keep working, and it then says the **Event** has happened and links to the **News** about that **Event** when such **News** exists.
 _Avoid_: Upcoming post, teaser
 
 **News**:
@@ -59,13 +61,27 @@ The site speaks **Ukrainian**. Navigation, section headings, the **news page**, 
 
 Language is instead an attribute of an individual published text. A **Poem** is usually Ukrainian; a **Translation** is Ukrainian or English depending on which direction the **Poet** rendered it, and its page carries both a translated text and an original text that may be in different languages from each other. English appearing on the site is therefore the language of *some content*, never the language of the site.
 
-### Dates and time
+#### Stress marks
+
+The **Poet** may mark the stressed vowel of a word (а́, і́, …) in a **Poem** or a **Translation** — for rhythm, or to tell apart words spelled alike. A stress mark is part of the text as the **Poet** wrote it, not decoration, and is shown exactly where it was placed. It is always the Ukrainian letter itself carrying an accent, never a look-alike Latin letter (such as *í* or *á*) slipped into a Ukrainian word, since a word containing one could no longer be found by its own text.
+
+## Dates and time
 
 Every date on the site is a **Kyiv** date. A **Poem**'s written date is the day the **Poet** finished it in Kyiv; **Announcements**, **News** and **Events** are dated the same way; **Вірш дня** rolls over at midnight Kyiv, not at midnight anywhere else. There is no per-**Reader** local time anywhere on the site — a **Reader** in another country sees Kyiv dates.
 
+### Navigation
+
+Every page carries the same single line at the top: the **Poet**'s name, **Іван Блиндюк**, on the left, and four links on the right — **Вірші**, **Переклади**, **Новини**, **Про автора**. The **Poet**'s name doubles as the way back to the **Hot take** page. There is no menu behind a button and no nested menu; these four are the whole site.
+
+**Вірші** is the site's table of contents: every **Cycle** in the **Poet**'s order, each with its **Poems** listed underneath it, so a **Reader** reaches any **Poem** in two steps and can see the whole body of work at once. A **Cycle** still has its own page, which is what a link to a **Cycle** points at and where **Finished** is stated, though it is not where most **Readers** pick a **Poem**.
+
 ### The news page
 
-Lists **Announcements** and **News** together in one feed, newest published first, each labeled with its kind so a **Reader** can tell them apart at a glance. A filter lets the **Reader** narrow the feed to just **Announcements** or just **News**.
+Lists every **News** item together with the **upcoming Announcements** in one plain chronological feed, newest first — by publication date, except for an **Announcement** the **Poet** has **Bumped**, which takes the position of its **Bump** date. There is no grouping and no filter. **Past Announcements** are not listed here at all, so everything in the feed is either an account of something that happened or an invitation to something still to come.
+
+Only **Announcements** are tagged, and the tag reads "Анонс" — what the item *is*, not when it happens, so it still makes sense on the **Hot take** page, on the **Announcement**'s own page and anywhere else the item is shown without a feed around it. **News** carries no tag: the page is called *Новини*, so news is what a **Reader** expects to find, and a tag on every entry would say nothing. Because a tagged entry is always still ahead, the tag doubles as the site's one "coming soon" signal, and it is the only place the site raises its voice.
+
+Every entry in the feed — **News** and **Announcement** alike — shows the date of its **Event**, and only that date. The publication date orders the feed but is not shown in it.
 
 ### The home page
 
@@ -84,6 +100,12 @@ What arrives is a link with a preview. For a **Poem** or **Translation**, the pr
 
 A **Share** always carries the **permanent page** of the item itself, never the page the **Reader** happened to be looking at. Sharing from the **Hot take** page shares the **Poem**, **Translation**, **Announcement** or **News** currently shown there — with its own stable URL — not the site's home address. The **Hot take** page is a window onto an item, not a home for it.
 _Avoid_: Pin (a different action)
+
+**Bump** ("оновити анонс"):
+The **Poet** raising an **upcoming Announcement** back to the top of the **news page** — a reminder about an **Event** announced a while ago, without publishing anything new. Only an **Announcement** can be **Bumped**; **News** cannot, as an account of something that already happened has no reason to resurface.
+
+A **Bump** moves the **Announcement** in the feed and nothing else. Its publication date is a fact and is never rewritten — the **Announcement** simply also carries the date it was last **Bumped**, and the feed orders it by the later of the two. A **Bump** leaves no trace a **Reader** can see: the item just appears higher. It can be repeated as often as the **Poet** likes, and the **Follow** feed ignores **Bumps** entirely, always ordering by true publication date, so following the site never delivers the same **Announcement** twice.
+_Avoid_: Repost, republish, renew (nothing is published again)
 
 **Follow**:
 A **Reader** subscribing to the site's feed in a feed reader (or a tool built on one), to learn about new things without revisiting. There is one feed carrying everything the **Poet** publishes — **Poems**, **Translations**, **Announcements** and **News** — newest first. Following needs no account and gives the site nothing about the **Reader**; there is no newsletter.

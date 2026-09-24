@@ -2,7 +2,7 @@
 
 The personal site of one Ukrainian poet: his poems arranged in cycles, his translations, and news and announcements about the events he takes part in. It's a Ukrainian-language static site built with Astro, with content kept as Markdown in this repo, deployed to Cloudflare Pages and rebuilt every night so the poem of the day changes.
 
-Domain language lives in [CONTEXT.md](CONTEXT.md); architectural decisions in [docs/adr/](docs/adr/).
+Domain language lives in [CONTEXT.md](CONTEXT.md); architectural decisions in [docs/adr/](docs/adr/); how the site looks — palette, fonts, type scale, layout rules — in [docs/design.md](docs/design.md).
 
 ## Environments
 
@@ -23,8 +23,8 @@ A scheduled GitHub Actions workflow rebuilds `master` every night at 21:00 UTC (
 
 Only logic that would fail silently is tested:
 
-- **Vitest unit tests** for the **Вірш дня** picker, the **Hot take** resolver, and the rule deciding whether a **Share**/**Pin** image shows the full poem or its opening lines. All three are pure functions that take the date and content as arguments, so tests need no clock mocking.
-- **Content rules are build failures, not tests** — every **Poem** in exactly one **Cycle**, unique slugs, every **Announcement**/**News** pointing at an existing **Event**. They run on every build, so broken content cannot reach production.
+- **Vitest unit tests** for the **Вірш дня** picker, the **Hot take** resolver, the rule deciding whether a **Share**/**Pin** image shows the full poem or its opening lines, and the news feed's ordering — which **Announcements** count as upcoming on a given Kyiv date, and where a **Bumped** one lands among the **News**. All three are pure functions that take the date and content as arguments, so tests need no clock mocking.
+- **Content rules are build failures, not tests** — every **Poem** in exactly one **Cycle**, unique slugs, every **Announcement**/**News** pointing at an existing **Event**, no Latin look-alike letters inside a Cyrillic word (a stress mark is always a Cyrillic vowel followed by U+0301), no **Bump** date earlier than the **Announcement**'s own publication date. They run on every build, so broken content cannot reach production.
 - No end-to-end or visual regression tests; the local dev server is the visual check.
 
 The GitHub Actions workflow runs `astro check`, then Vitest, then the build — on every push to `master` and on the nightly schedule. Cloudflare receives a deploy only if all three pass; otherwise production stays on the last good version.
