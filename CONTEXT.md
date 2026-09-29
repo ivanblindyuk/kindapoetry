@@ -45,6 +45,8 @@ A real-world occasion the **Poet** takes part in — a reading, a festival, a la
 
 Every published thing lives at a flat, permanent address made from words, not numbers: `/poems/veresnevyi-doshch`, `/news/…`, `/translations/…`. The address is chosen once, by hand, when the thing is first published, and never changes afterwards — revising a **Poem**'s title, or the opening fragment standing in for an untitled one, leaves its address alone. A **Poem**'s address does not mention its **Cycle**, so moving a **Poem** between **Cycles** never breaks a link a **Reader** has already **Shared**.
 
+Each section of the site lives at the bare prefix its items use: **Вірші** at `/poems`, **Переклади** at `/translations`, **Новини** at `/news`, and **Про автора** at `/about`, with the **Hot take** page at `/`. Trimming an item's address back by one step therefore always lands on the section that lists it. The prefixes are English words while the item slugs after them are transliterated Ukrainian; this is deliberate, and a section is never given a transliterated name like `/virshi`, which would no longer match its items' prefix.
+
 ### Media
 
 **Photograph**:
@@ -74,6 +76,10 @@ Every date on the site is a **Kyiv** date. A **Poem**'s written date is the day 
 Every page carries the same single line at the top: the **Poet**'s name, **Іван Блиндюк**, on the left, and four links on the right — **Вірші**, **Переклади**, **Новини**, **Про автора**. The **Poet**'s name doubles as the way back to the **Hot take** page. There is no menu behind a button and no nested menu; these four are the whole site.
 
 **Вірші** is the site's table of contents: every **Cycle** in the **Poet**'s order, each with its **Poems** listed underneath it, so a **Reader** reaches any **Poem** in two steps and can see the whole body of work at once. A **Cycle** still has its own page, which is what a link to a **Cycle** points at and where **Finished** is stated, though it is not where most **Readers** pick a **Poem**.
+
+### Page titles
+
+A page's title, the name shown on its browser tab and as the link text in search results, is `<page name> — Іван Блиндюк`: `Вірші — Іван Блиндюк`, `Вересневий дощ — Іван Блиндюк`. The page's own name comes first, so a row of tabs still tells them apart when truncated, and the separator is a spaced em dash. An untitled **Poem** uses its opening fragment, since that is its name. The **Hot take** page is titled with the **Poet**'s name alone, which is what someone looking for him types.
 
 ### The news page
 

@@ -41,6 +41,8 @@ A "supports Cyrillic" label proved nearly worthless for this test. Any replaceme
 
 Fonts are **self-hosted**, served with the site, never loaded from Google Fonts or any other third party. Fetching them from an outside server would hand every **Reader**'s address to that server on every visit, which contradicts the site's promise never to track an individual **Reader**. Self-hosting also keeps control of which characters the font files contain. The combining stress mark (U+0301) must ship in the same file as the Cyrillic letters, or accents fall back to another font.
 
+The files come from the `@fontsource` npm packages: copies of the Google Fonts files, installed with npm and served from the site's own domain, with the version pinned so a font changes only on a deliberate upgrade. Only the Cyrillic and Latin subsets are loaded. The weights are Gentium Book Plus regular, italic and bold, and Montserrat 400 and 600, the only two the type scale uses. A dev-only page renders every stressed vowel in both cases, in both faces, regular and italic, so a font upgrade is checked the same way the fonts were chosen. It never ships to production.
+
 ## Measure and width
 
 - **Prose** — **News**, the About page, a **Translation**'s original text — sits in a column of about 65 characters.
@@ -91,9 +93,15 @@ The **poem text is the anchor** — every other size is chosen against it, not a
 
 A **Poem**'s title in a list stays ink rather than accent: every title there is a link, and colouring them would turn the **Вірші** page almost entirely teal and spend the accent that the site keeps rare.
 
+## Motion
+
+**Nothing on the site moves.** Every state change is instant: a hover underline appears at once, and so does the thickening and the colour change on **Share** and **Pin**. Nothing on a printed page animates either. This is a decision, not an omission, and it holds everywhere: one component that eases while the rest snap would look like a mistake. If an instant change ever feels abrupt, a short transition on hover states is a one-line change in the theme file, and it must then be switched off under `prefers-reduced-motion`.
+
 ## Theme
 
 Every colour and every font is defined once, as a named theme variable, and used everywhere through that name — never as a literal value in a component. The first choices are expected to be revisited; changing the ink colour or the body font must be a one-line edit.
+
+The styles are plain CSS, with no preprocessor. The theme variables are CSS custom properties in one theme file, and each component styles itself in its own scoped style block, only ever through those variables. The fluid sizes are `clamp()` values computed once, each with a comment giving its phone and desktop sizes so it can be re-derived. SCSS was considered and left out. Native CSS nesting covers most of what it adds, and its compile-time variables could not be redefined for a dark mode. The one rule that matters is enforced rather than trusted: Stylelint rejects a colour literal anywhere outside the theme file.
 
 **No dark mode, deliberately deferred.** The site's identity is paper, and a second palette would mean choosing and testing four more colours before the first one has been seen in use. Because nothing hard-codes a colour, adding one later means redefining the four variables inside a `prefers-color-scheme` block, with no component touched. A manual light/dark switch is ruled out for a different reason: it needs a control, JavaScript and per-**Reader** browser storage on a site that otherwise ships none of the three.
 
@@ -101,8 +109,7 @@ Every colour and every font is defined once, as a named theme variable, and used
 
 Decisions not yet made. Anything here that turns out to be *work* belongs in the issue tracker; what is listed is the decision still owed.
 
-- **Motion.** Nothing on the site animates, not even a hover transition, and that may well be right for a book. But it should be a stated choice rather than an omission, or a hover underline that snaps will read as unfinished. Any motion added later needs a `prefers-reduced-motion` guard.
-- **Favicon and browser tab.** Undecided, and something has to be there. A letter or a small mark is the usual answer for a site like this.
+- **Favicon and browser tab.** Provisional: the letter **І** in Montserrat 600, ink on paper, as an SVG. It holds the place and is expected to be replaced by a designed mark. It has not been decided on as the site's icon.
 - **Print.** A **Reader** printing a **Poem** or saving it as a PDF is likelier here than on most sites. With no print stylesheet they get the navigation and footer wrapped around the poem.
 - **The type scale is provisional** — see above. Revisit once real **Poems** are on the site and the poem text can be judged at its real size.
 - **Dark mode** — deferred, not rejected. Revisit if **Readers** turn out to read at night, which the site cannot itself measure.

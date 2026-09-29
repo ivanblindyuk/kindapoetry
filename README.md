@@ -27,6 +27,8 @@ Only logic that would fail silently is tested:
 - **Content rules are build failures, not tests** — every **Poem** in exactly one **Cycle**, unique slugs, every **Announcement**/**News** pointing at an existing **Event**, no Latin look-alike letters inside a Cyrillic word (a stress mark is always a Cyrillic vowel followed by U+0301), no **Bump** date earlier than the **Announcement**'s own publication date. They run on every build, so broken content cannot reach production.
 - No end-to-end or visual regression tests; the local dev server is the visual check.
 
-The GitHub Actions workflow runs `astro check`, then Vitest, then the build — on every push to `master` and on the nightly schedule. Cloudflare receives a deploy only if all three pass; otherwise production stays on the last good version.
+- **Stylelint** rejects a colour literal anywhere outside the theme file, so every colour goes through a theme variable (see [docs/design.md](docs/design.md#theme)).
+
+The GitHub Actions workflow runs `astro check` and Stylelint, then Vitest, then the build — on every push to `master` and on the nightly schedule. Cloudflare receives a deploy only if every step passes; otherwise production stays on the last good version.
 
 If the nightly run fails, production is safe but **Вірш дня** freezes on the previous day. GitHub's failure email is the alert — make sure it isn't filtered out.
