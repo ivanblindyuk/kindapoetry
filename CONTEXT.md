@@ -50,7 +50,7 @@ Each section of the site lives at the bare prefix its items use: **Вірші** 
 ### Media
 
 **Photograph**:
-An image published on a **News** item, or the promotional image on an **Announcement**. Always the **Poet**'s own to publish, and stored with the site itself rather than on an outside service.
+An image published on a **News** item, the promotional image on an **Announcement**, or the portrait on the About page. Always the **Poet**'s own to publish, and stored with the site itself rather than on an outside service. A **Photograph** may name whoever took it; when it does, that credit is shown with the image, and when it does not, nothing is shown in its place.
 
 **Video**:
 A video shown on a **News** item. Always a **YouTube** video, embedded and played on the page — it makes no difference whether the **Poet** filmed it or someone else did, and no credit is shown either way.
@@ -76,6 +76,24 @@ Every date on the site is a **Kyiv** date. A **Poem**'s written date is the day 
 Every page carries the same single line at the top: the **Poet**'s name, **Іван Блиндюк**, on the left, and four links on the right — **Вірші**, **Переклади**, **Новини**, **Про автора**. The **Poet**'s name doubles as the way back to the **Hot take** page. There is no menu behind a button and no nested menu; these four are the whole site.
 
 **Вірші** is the site's table of contents: every **Cycle** in the **Poet**'s order, each with its **Poems** listed underneath it, so a **Reader** reaches any **Poem** in two steps and can see the whole body of work at once. A **Cycle** still has its own page, which is what a link to a **Cycle** points at and where **Finished** is stated, though it is not where most **Readers** pick a **Poem**.
+
+### The About page
+
+**Про автора** tells a **Reader** who the **Poet** is and where else to find him. It holds three things, in this order: one portrait, a bio, and a list of links to him elsewhere (social profiles, his Wikipedia page).
+
+Apart from the portrait, the page is one piece of writing by the **Poet**: he chooses its sections, their headings and their order, and may add a new section whenever he has something to put in it.
+
+The page is headed **Про автора**, like the link that leads to it, not with the **Poet**'s name, which already stands above it in the header. The bio therefore opens with his full name, so the page says who it is about in its first words.
+
+The bio is prose in the third person, matching the page's name. That the **Poet** writes lyrics for a band is a fact the bio mentions; the lyrics themselves are not published on the site.
+
+The page offers no way to write to the **Poet**: no email address and no contact form. Someone who wants to reach him does so through one of the linked social profiles.
+
+The About page is not a published thing: it carries no **Share** action and never appears in the **Follow** feed, since a revised bio is not news. Its address can still be passed along by hand, and then it arrives as a link card showing the **Poet**'s name, the portrait and a one-line description of him that the **Poet** writes himself rather than one cut from the bio.
+
+The **Poet**'s books are a section of the bio, not a separate kind of thing: a plain list, oldest first, each entry giving the book's title, the year it was first published and the publisher of that first edition. A book has no page of its own, no cover image, and no connection to the **Poems** or **Cycles** on the site.
+
+The books are listed, not sold: the page never links to a shop. A book is carried by several retailers at once and those links go stale, so the site says which books exist and leaves finding a copy to the **Reader**.
 
 ### Page titles
 
@@ -139,7 +157,3 @@ _Avoid_: Share (a different action)
 ## Footer
 
 Every page shows the fixed text "Авторські права застережено" plus a copyright notice with the current year only (e.g., "© 2026") — no "since" year, just whatever year it is now.
-
-## Flagged ambiguities
-
-- **The About-me page's shape isn't settled.** It will hold photo(s), a bio, and social links at minimum, but the **Poet** also wants room for things like links to marketplaces selling his books, band lyrics, a Wikipedia page — an open-ended, growing set of sections rather than a fixed list of fields. *Revisit once the actual content it needs to hold is clearer; don't force a rigid schema now.*

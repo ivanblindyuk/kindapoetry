@@ -53,7 +53,7 @@ The files come from the `@fontsource` npm packages: copies of the Google Fonts f
 
 The layout is **fluid**, not a set of fixed layouts switching at breakpoints: sizes are relative and text scales smoothly between phone and desktop, so there is no width at which the page looks wrong. There is almost nothing to rearrange — one column of text, a one-line header, a footer — so breakpoints have little to do, and a **Poem**'s content-driven width is fluid by nature.
 
-The header is the one place that changes shape. On a wide screen it is a single line: **Іван Блиндюк** on the left, the four links on the right. On a phone it becomes **two lines** — the name, then the four links in one row beneath it, all of which fit at 360px. They are never hidden behind a button: with four destinations the menu is the site map, and it costs one line to show it. A stacked list, one link per line, was considered and rejected for taking about a fifth of a phone screen before the poem begins.
+Two things change shape: the header, and the portrait on the About page (see below). On a wide screen it is a single line: **Іван Блиндюк** on the left, the four links on the right. On a phone it becomes **two lines** — the name, then the four links in one row beneath it, all of which fit at 360px. They are never hidden behind a button: with four destinations the menu is the site map, and it costs one line to show it. A stacked list, one link per line, was considered and rejected for taking about a fifth of a phone screen before the poem begins.
 
 Every page works from a narrow phone up to a wide desktop screen. Phones are the common case, not the fallback: a **Shared** link is usually opened in a messenger on a phone, and a **Pin** leads back from Pinterest the same way. A change is checked at phone width before it is considered done.
 
@@ -93,6 +93,18 @@ The **poem text is the anchor** — every other size is chosen against it, not a
 
 A **Poem**'s title in a list stays ink rather than accent: every title there is a link, and colouring them would turn the **Вірші** page almost entirely teal and spend the accent that the site keeps rare.
 
+## The About page
+
+The portrait comes first, directly under the page heading, **set to the right of the prose column at about 40% of its width, with the bio wrapping down its left side**. An upright photo centred on its own would stand in a strip of empty paper on either side; wrapped, it reads the way a book jacket sets an author note. It is on the right rather than the left so that every line of the bio starts at the same left edge. The books and the links begin below the photo, never beside it.
+
+**On a phone the portrait stacks** above the bio at the column's full width, with no wrapping: beside a photo at that size a line would hold three or four words.
+
+The photo is shown in its own proportions, uncropped, with square corners and no frame or shadow; a circular crop would read as a social-media avatar. Its credit, when there is one, sits beneath it in the faded secondary ink. An upright or square photo is the convention, since a wide one would make the face small. Like the links below, the placement is accepted subject to approval by eye on the built page.
+
+The links to the **Poet** elsewhere are **words, not icons**: a plain list in which each link names the place it leads to ("Facebook", "Вікіпедія"), styled as any other link in body text. A row of brand logos would be the loudest thing on the site, on its quietest page, and would need image files kept in step with each platform's rebranding. Official follow buttons and embedded profile widgets are ruled out whatever the links look like, since they report every **Reader**'s visit to the platform.
+
+This is accepted subject to seeing it: the word list must be approved by eye on the built page. If it does not work, the alternative is small ink icons, optionally redrawn to suit the site, behaving like **Share** and **Pin**.
+
 ## Motion
 
 **Nothing on the site moves.** Every state change is instant: a hover underline appears at once, and so does the thickening and the colour change on **Share** and **Pin**. Nothing on a printed page animates either. This is a decision, not an omission, and it holds everywhere: one component that eases while the rest snap would look like a mistake. If an instant change ever feels abrupt, a short transition on hover states is a one-line change in the theme file, and it must then be switched off under `prefers-reduced-motion`.
@@ -113,4 +125,4 @@ Decisions not yet made. Anything here that turns out to be *work* belongs in the
 - **Print.** A **Reader** printing a **Poem** or saving it as a PDF is likelier here than on most sites. With no print stylesheet they get the navigation and footer wrapped around the poem.
 - **The type scale is provisional** — see above. Revisit once real **Poems** are on the site and the poem text can be judged at its real size.
 - **Dark mode** — deferred, not rejected. Revisit if **Readers** turn out to read at night, which the site cannot itself measure.
-- **Per-page layout** — the **Poem**, **Cycle**, **News**, **Announcement** and About pages; how a **Photograph** and an embedded **Video** are sized and captioned; the design of the **Share** and **Pin** images. Each is its own session, and each is constrained by everything above.
+- **Per-page layout** — the **Poem**, **Cycle**, **News** and **Announcement** pages; how a **Photograph** and an embedded **Video** are sized and captioned; the design of the **Share** and **Pin** images. Each is its own session, and each is constrained by everything above.
