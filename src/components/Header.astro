@@ -1,0 +1,71 @@
+---
+import { POET_NAME, SECTIONS } from '../site';
+
+const { pathname } = Astro.url;
+const isCurrent = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+---
+
+<header class="header">
+  <a class="name" href="/">{POET_NAME}</a>
+  <nav aria-label="Розділи сайту">
+    <ul class="links">
+      {
+        SECTIONS.map(({ href, label }) => (
+          <li>
+            <a href={href} aria-current={isCurrent(href) ? 'page' : undefined}>
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  /* One line when the name and the links fit side by side, two when they do not. */
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-5);
+    padding-block: var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--size-chrome);
+  }
+
+  .links {
+    display: flex;
+    gap: var(--space-3);
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+  }
+
+  a {
+    color: var(--color-ink);
+    text-decoration-line: none;
+  }
+
+  a:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+  }
+
+  .name {
+    font-weight: 600;
+  }
+
+  a[aria-current='page'] {
+    color: var(--color-accent);
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  @media (min-width: 40rem) {
+    .links {
+      gap: var(--space-4);
+    }
+  }
+</style>

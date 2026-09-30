@@ -1,0 +1,49 @@
+/*
+ * The theme: every colour, font, size and gap on the site, defined once.
+ * Components use these names only, never a literal value.
+ * See docs/design.md.
+ */
+:root {
+  /* Colour */
+  --color-paper: #e6e6e9;
+  --color-ink: #1f2230;
+  --color-ink-faded: #5c5e6a;
+  --color-accent: #0f5e63;
+  --color-signal: #9c4a22;
+  --color-signal-border: #be6e46;
+
+  /* Fonts */
+  --font-text: 'Gentium Book Plus', georgia, serif;
+  --font-display: 'Montserrat', system-ui, sans-serif;
+
+  /*
+   * Type sizes. Each is fluid between a 360px and a 1200px viewport:
+   *   slope     = (desktop - phone) / (1200 - 360)
+   *   preferred = (phone - slope * 360)px + (slope * 100)vw
+   * with px written as rem (16px = 1rem).
+   */
+  --size-poem: clamp(1.0625rem, 0.9821rem + 0.3571vw, 1.25rem); /* 17 → 20px */
+  --size-prose: clamp(1rem, 0.9464rem + 0.2381vw, 1.125rem); /* 16 → 18px */
+  --size-title: clamp(1.625rem, 1.3036rem + 1.4286vw, 2.375rem); /* 26 → 38px */
+  --size-list-title: clamp(1.1875rem, 1.0804rem + 0.4762vw, 1.4375rem); /* 19 → 23px */
+  --size-chrome: clamp(0.875rem, 0.8482rem + 0.119vw, 0.9375rem); /* 14 → 15px */
+  --size-tag: clamp(0.6875rem, 0.6875rem + 0vw, 0.6875rem); /* 11 → 11px, fixed */
+
+  /* Line heights */
+  --leading-poem: 1.65;
+  --leading-prose: 1.6;
+  --leading-title: 1.15;
+  --leading-list-title: 1.25;
+
+  /* Spacing steps */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1.25rem; /* 20px */
+  --space-5: 2rem; /* 32px */
+  --space-6: 3.25rem; /* 52px */
+  --space-7: 5.25rem; /* 84px */
+
+  /* The widest the frame grows on a desktop screen. */
+  --page-width: 64rem;
+}

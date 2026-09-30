@@ -1,0 +1,51 @@
+---
+import '../styles/fonts.css';
+import '../styles/theme.css';
+import '../styles/base.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { POET_NAME } from '../site';
+
+interface Props {
+  /** The page's own name. Omitted on the Hot take page, which is titled with the Poet's name alone. */
+  title?: string;
+}
+
+const { title } = Astro.props;
+const pageTitle = title ? `${title} — ${POET_NAME}` : POET_NAME;
+---
+
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="frame">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<style>
+  .frame {
+    display: flex;
+    flex-direction: column;
+    min-block-size: 100dvh;
+    max-inline-size: var(--page-width);
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+  }
+
+  main {
+    flex: 1;
+    padding-block: var(--space-5) var(--space-6);
+  }
+</style>
