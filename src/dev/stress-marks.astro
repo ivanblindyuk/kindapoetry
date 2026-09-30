@@ -1,0 +1,75 @@
+---
+// Dev-only: the visual check every font must pass (docs/design.md, "Fonts").
+// Injected by astro.config.mjs for `npm run dev` only, never built.
+import Layout from '../layouts/Layout.astro';
+
+const ACUTE = '́';
+const VOWELS = ['а', 'е', 'є', 'и', 'і', 'ї', 'о', 'у', 'ю', 'я'];
+const stressed = (letters: string[]) => letters.map((letter) => letter + ACUTE).join(' ');
+
+const lower = stressed(VOWELS);
+const upper = stressed(VOWELS.map((vowel) => vowel.toUpperCase()));
+const words = ['за', 'мок замо', 'к · му', 'ка мука', ' · Ї', 'жа І', 'рій Є', 'вшан'].join(ACUTE);
+
+const samples = [
+  { label: 'Gentium Book Plus, regular', face: 'text' },
+  { label: 'Gentium Book Plus, italic', face: 'text italic' },
+  { label: 'Gentium Book Plus, bold', face: 'text bold' },
+  { label: 'Montserrat 400', face: 'display' },
+  { label: 'Montserrat 400, italic (synthesised: no italic file is loaded)', face: 'display italic' },
+  { label: 'Montserrat 600', face: 'display bold' },
+];
+---
+
+<Layout title="Наголоси">
+  <h1>Наголоси</h1>
+  {
+    samples.map(({ label, face }) => (
+      <section>
+        <h2>{label}</h2>
+        <p class={face}>{lower}</p>
+        <p class={face}>{upper}</p>
+        <p class={face}>{words}</p>
+      </section>
+    ))
+  }
+</Layout>
+
+<style>
+  section {
+    margin-block-start: var(--space-5);
+  }
+
+  h2 {
+    margin-block-end: var(--space-2);
+    color: var(--color-ink-faded);
+    font-family: var(--font-display);
+    font-size: var(--size-chrome);
+    font-weight: 400;
+  }
+
+  p {
+    font-size: var(--size-title);
+    line-height: var(--leading-poem);
+  }
+
+  .text {
+    font-family: var(--font-text);
+  }
+
+  .display {
+    font-family: var(--font-display);
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .text.bold {
+    font-weight: 700;
+  }
+
+  .display.bold {
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,20 @@
+---
+// Every date on the site is a Kyiv date, the year included.
+const year = new Intl.DateTimeFormat('en', { timeZone: 'Europe/Kyiv', year: 'numeric' }).format(
+  new Date(),
+);
+---
+
+<footer class="footer">
+  <p>Авторські права застережено © {year}</p>
+</footer>
+
+<style>
+  .footer {
+    padding-block: var(--space-5);
+    color: var(--color-ink-faded);
+    font-family: var(--font-display);
+    font-size: var(--size-chrome);
+    text-align: center;
+  }
+</style>
