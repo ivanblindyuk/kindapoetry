@@ -13,9 +13,12 @@ There are exactly two environments:
 
 Branches:
 
-- `master` is production. Every push to `master` builds and deploys; publishing a poem is a commit to `master`.
-- `develop` is the working branch, merged into `master` to go live.
-- Any other branch gets a throwaway Cloudflare preview URL automatically. Previews are not an environment — they exist only to check a change on a real phone before it is live.
+- `master` is production. Every push to `master` builds and deploys.
+- **Content goes straight to `master`.** Publishing a poem, revising the bio or replacing the portrait is a commit to `master` — from a local clone, or from GitHub's web editor when away from the computer. Content can't break the frame, and the build rejects broken content before it deploys, so there is nothing for `develop` to stage.
+- **Code goes through `develop`**, the working branch, merged into `master` to go live. Because content commits land on `master` alone, merge `master` into `develop` before starting code work, so the two never drift into conflicts.
+- Any other branch gets a throwaway Cloudflare preview URL automatically. Previews are not an environment — they exist only to check a change on a real phone before it is live, including a content edit worth seeing before it goes up.
+
+**Deferred: a git-backed admin panel.** A web form that edits the same content files and makes the same commits to `master`, with an upload button for photographs, is possible on top of this setup (ADR-0001 chose Astro partly to keep that door open). It has not been decided on and is not planned work. Revisit it only when editing content on GitHub becomes a real pain, for example when uploading a **News** item's photographs one by one becomes tedious, or when hand-editing a **Cycle**'s list of poems starts producing mistakes. Content stays in plain files with schemas either way, so nothing built before then needs undoing.
 
 A scheduled GitHub Actions workflow rebuilds `master` every night at 21:00 UTC (midnight Kyiv in summer, 23:00 in winter), so **Вірш дня** rolls over and expired **Hot take** promotions drop off. All date logic uses `Europe/Kyiv` explicitly, never the build machine's clock.
 
