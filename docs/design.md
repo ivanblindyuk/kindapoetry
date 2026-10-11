@@ -117,11 +117,14 @@ The styles are plain CSS, with no preprocessor. The theme variables are CSS cust
 
 **No dark mode, deliberately deferred.** The site's identity is paper, and a second palette would mean choosing and testing four more colours before the first one has been seen in use. Because nothing hard-codes a colour, adding one later means redefining the four variables inside a `prefers-color-scheme` block, with no component touched. A manual light/dark switch is ruled out for a different reason: it needs a control, JavaScript and per-**Reader** browser storage on a site that otherwise ships none of the three.
 
+## Favicon
+
+The site's icon is the letters **ІБ** in Montserrat 600, ink on paper, as an SVG. A favicon cannot load the site's fonts or its theme file, so the letters are drawn as shapes and the two colours repeat the theme's ink and paper.
+
 ## Open
 
 Decisions not yet made. Anything here that turns out to be *work* belongs in the issue tracker; what is listed is the decision still owed.
 
-- **Favicon and browser tab.** Provisional: the letter **І** in Montserrat 600, ink on paper, as an SVG. It holds the place and is expected to be replaced by a designed mark. It has not been decided on as the site's icon.
 - **Print.** A **Reader** printing a **Poem** or saving it as a PDF is likelier here than on most sites. With no print stylesheet they get the navigation and footer wrapped around the poem.
 - **The type scale is provisional** — see above. Revisit once real **Poems** are on the site and the poem text can be judged at its real size.
 - **Dark mode** — deferred, not rejected. Revisit if **Readers** turn out to read at night, which the site cannot itself measure.
