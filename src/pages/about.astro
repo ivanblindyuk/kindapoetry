@@ -1,7 +1,97 @@
 ---
+import { getImage, Image } from 'astro:assets';
+import { getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import { POET_NAME } from '../site';
+
+const about = await getEntry('about', 'about');
+if (!about) throw new Error('src/content/about/about.md is missing');
+
+const { portrait, portraitAlt, portraitCredit, portraitCreditUrl, description } = about.data;
+const { Content } = await render(about);
+
+// The link card's image needs an absolute address, so it waits for `site`.
+const cardImage = Astro.site
+  ? new URL((await getImage({ src: portrait, format: 'jpg' })).src, Astro.site).href
+  : undefined;
 ---
 
-<Layout title="Про автора">
-  <h1>Про автора</h1>
+<Layout title="Про автора" description={description}>
+  <Fragment slot="head">
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={POET_NAME} />
+    <meta property="og:description" content={description} />
+    {cardImage && <meta property="og:image" content={cardImage} />}
+    {cardImage && <meta property="og:image:alt" content={portraitAlt} />}
+  </Fragment>
+
+  <article class="about">
+    <h1>Про автора</h1>
+    <figure class="portrait">
+      <Image
+        src={portrait}
+        alt={portraitAlt}
+        widths={[360, 480, 640, portrait.width]}
+        sizes="(min-width: 40rem) min(30vw, 18.5rem), calc(100vw - 2.5rem)"
+        loading="eager"
+      />
+      {
+        portraitCredit && (
+          <figcaption>
+            Фото: {portraitCreditUrl ? <a href={portraitCreditUrl} target="_blank" rel="noopener">{portraitCredit}</a> : portraitCredit}
+          </figcaption>
+        )
+      }
+    </figure>
+    <Content />
+  </article>
 </Layout>
+
+<style>
+  h1 {
+    margin-block-end: var(--space-5);
+  }
+
+  .portrait {
+    margin-block-end: var(--space-4);
+  }
+
+  .portrait img {
+    inline-size: 100%;
+    block-size: auto;
+  }
+
+  figcaption {
+    margin-block-start: var(--space-2);
+    color: var(--color-ink-faded);
+    font-family: var(--font-display);
+    font-size: var(--size-caption);
+  }
+
+  /* Beside a photo on a phone a line would hold three or four words, so it wraps only on a wider screen. */
+  @media (min-width: 40rem) {
+    .portrait {
+      float: right;
+      inline-size: 30%;
+      margin-inline-start: var(--space-5);
+    }
+  }
+
+  .about :global(p + p) {
+    margin-block-start: var(--space-3);
+  }
+
+  /* Every section after the bio starts below the portrait, never beside it. */
+  .about :global(h2) {
+    clear: both;
+    margin-block: var(--space-6) var(--space-3);
+    font-family: var(--font-display);
+    font-size: var(--size-list-title);
+    font-weight: 600;
+    line-height: var(--leading-list-title);
+  }
+
+  .about :global(ul) {
+    padding-inline-start: var(--space-4);
+  }
+</style>

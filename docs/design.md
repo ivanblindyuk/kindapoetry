@@ -45,7 +45,8 @@ The files come from the `@fontsource` npm packages: copies of the Google Fonts f
 
 ## Measure and width
 
-- **Prose** — **News**, the About page, a **Translation**'s original text — sits in a column of about 65 characters.
+- **Prose** — **News**, a **Translation**'s original text — sits in a column of about 65 characters. Provisional for **News**: it is settled when the **News** page is built.
+- **The About page** is as wide as the header. It is composed rather than running prose: the bio sits beside the portrait, which takes about 30% of the width, so the bio's lines come to about 75 characters (see below).
 - **A Poem's block is as wide as its own longest line**, not a fixed column. The block is centred on the page while the lines inside it stay left-aligned, the way a poetry book sets a short-lined poem in the middle of the page rather than against the left margin. Pages therefore do not all share one column edge — the **Poem** sets its own width, and that is intended.
 - **A line too long for the screen wraps with a hanging indent**, the printed convention, so a **Reader** can see the continuation is not a new line. Line breaks belong to the **Poet**: the site never shrinks the text to make a line fit, and never lets a line run off the side.
 
@@ -59,7 +60,7 @@ Every page works from a narrow phone up to a wide desktop screen. Phones are the
 
 ## Type scale and spacing
 
-A starting point, to be adjusted once real **Poems** are on the site. Six sizes, each fluid between phone and desktop, and nothing outside this set:
+A starting point, to be adjusted once real **Poems** are on the site. Seven sizes, each fluid between phone and desktop, and nothing outside this set:
 
 | Role | Phone → desktop | Face |
 | --- | --- | --- |
@@ -68,6 +69,7 @@ A starting point, to be adjusted once real **Poems** are on the site. Six sizes,
 | Poem / page title | 26 → 38px, 1.15 | Montserrat 600 |
 | List item title (a **Poem** in the **Вірші** list, a feed entry) | 19 → 23px, 1.25 | Montserrat 600 |
 | Chrome (navigation, dates, **Cycle** names) | 14 → 15px | Montserrat 400 |
+| Caption (a **Photograph**'s credit) | 12 → 13px | Montserrat 400 |
 | Tag and label | 11px fixed, uppercase, letter-spaced | Montserrat 600 |
 
 The **poem text is the anchor** — every other size is chosen against it, not against a heading scale — and it is larger than a typical website's body text because a poem is read slowly in short lines. Its 1.65 line height is looser than prose for the same reason; a stanza break is about one and a half line heights, so stanzas read as units without drifting apart. The space between a title and the poem's first line is generous (about 52px on a desktop), the way a book sets it.
@@ -87,6 +89,8 @@ The **poem text is the anchor** — every other size is chosen against it, not a
 | A **Poem**'s title in a list | Ink, no underline; hover underlines it; the whole row is clickable |
 | **Share** / **Pin** | Small ink icons; hover and focus turn them accent |
 
+**A link to another site opens in a new tab**, so a **Reader** following a profile link or a press article still has the page they were reading. Links within the site open in the same tab.
+
 **Links keep their underline.** Colour alone is not enough for a **Reader** who cannot separate teal from blue-black ink, and an underline is how print has always marked a reference.
 
 **A visited link fades** — faded ink `#5C5E6A` (5.2:1), the same ink at lower strength rather than a new colour. It applies to links pointing at a published item in a list (**Poems** in the **Вірші** list and on a **Cycle** page, **Translations**, entries in the news feed) and not to links inside body text. A **Reader** working through a **Cycle** poem by poem, going back and forth, can otherwise lose track of what they have already read; a read **Poem** should look settled, not disabled. Nothing about this reaches the site: visited state lives in the **Reader**'s own browser, which is also why the signal must be a colour — browsers allow `:visited` to change only colours, never weight, opacity or an added mark.
@@ -95,13 +99,13 @@ A **Poem**'s title in a list stays ink rather than accent: every title there is 
 
 ## The About page
 
-The portrait comes first, directly under the page heading, **set to the right of the prose column at about 40% of its width, with the bio wrapping down its left side**. An upright photo centred on its own would stand in a strip of empty paper on either side; wrapped, it reads the way a book jacket sets an author note. It is on the right rather than the left so that every line of the bio starts at the same left edge. The books and the links begin below the photo, never beside it.
+The portrait comes first, directly under the page heading, **set to the right at about 30% of the page's width, with the bio wrapping down its left side**. The page runs the full width of the header, so beside the portrait the bio keeps a comfortable line of about 75 characters; at 40% the portrait dominated the page. Text that runs on past the bottom of the portrait gets long lines of about 110, so the bio is best kept no longer than the portrait is tall; if it grows past that, widening the portrait is the first remedy. An upright photo centred on its own would stand in a strip of empty paper on either side; wrapped, it reads the way a book jacket sets an author note. It is on the right rather than the left so that every line of the bio starts at the same left edge. The books and the links begin below the photo, never beside it.
 
 **On a phone the portrait stacks** above the bio at the column's full width, with no wrapping: beside a photo at that size a line would hold three or four words.
 
 The photo is shown in its own proportions, uncropped, with square corners and no frame or shadow; a circular crop would read as a social-media avatar. Its credit, when there is one, sits beneath it in the faded secondary ink. An upright or square photo is the convention, since a wide one would make the face small. Like the links below, the placement is accepted subject to approval by eye on the built page.
 
-The links to the **Poet** elsewhere are **words, not icons**: a plain list in which each link names the place it leads to ("Facebook", "Вікіпедія"), styled as any other link in body text. A row of brand logos would be the loudest thing on the site, on its quietest page, and would need image files kept in step with each platform's rebranding. Official follow buttons and embedded profile widgets are ruled out whatever the links look like, since they report every **Reader**'s visit to the platform.
+The links to the **Poet** elsewhere are **words, not icons**: a plain list in which each link names the place it leads to ("Instagram", "Facebook"), styled as any other link in body text. A row of brand logos would be the loudest thing on the site, on its quietest page, and would need image files kept in step with each platform's rebranding. Official follow buttons and embedded profile widgets are ruled out whatever the links look like, since they report every **Reader**'s visit to the platform.
 
 This is accepted subject to seeing it: the word list must be approved by eye on the built page. If it does not work, the alternative is small ink icons, optionally redrawn to suit the site, behaving like **Share** and **Pin**.
 
