@@ -79,7 +79,7 @@ Every page carries the same single line at the top: the **Poet**'s name, **Ів�
 
 ### The About page
 
-**Про автора** tells a **Reader** who the **Poet** is and where else to find him. It holds three things, in this order: one portrait, a bio, and a list of links to him elsewhere (social profiles, his Wikipedia page).
+**Про автора** tells a **Reader** who the **Poet** is and where else to find him. It holds three things, in this order: one portrait, a bio, and a list of links to his social profiles.
 
 Apart from the portrait, the page is one piece of writing by the **Poet**: he chooses its sections, their headings and their order, and may add a new section whenever he has something to put in it.
 

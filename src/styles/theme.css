@@ -27,6 +27,7 @@
   --size-title: clamp(1.625rem, 1.3036rem + 1.4286vw, 2.375rem); /* 26 → 38px */
   --size-list-title: clamp(1.1875rem, 1.0804rem + 0.4762vw, 1.4375rem); /* 19 → 23px */
   --size-chrome: clamp(0.875rem, 0.8482rem + 0.119vw, 0.9375rem); /* 14 → 15px */
+  --size-caption: clamp(0.75rem, 0.7232rem + 0.119vw, 0.8125rem); /* 12 → 13px */
   --size-tag: clamp(0.6875rem, 0.6875rem + 0vw, 0.6875rem); /* 11 → 11px, fixed */
 
   /* Line heights */

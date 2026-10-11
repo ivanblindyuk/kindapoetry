@@ -9,9 +9,11 @@ import { POET_NAME } from '../site';
 interface Props {
   /** The page's own name. Omitted on the Hot take page, which is titled with the Poet's name alone. */
   title?: string;
+  /** The page's meta description, shown by search engines. */
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 const pageTitle = title ? `${title} — ${POET_NAME}` : POET_NAME;
 ---
 
@@ -22,6 +24,8 @@ const pageTitle = title ? `${title} — ${POET_NAME}` : POET_NAME;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{pageTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <slot name="head" />
   </head>
   <body>
     <div class="frame">
