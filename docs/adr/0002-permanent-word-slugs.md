@@ -1,6 +1,6 @@
 # Permanent hand-chosen word slugs, flat, transliterated
 
-Every published thing is addressed by a flat, transliterated Latin slug — `/poems/veresnevyi-doshch` — written explicitly in the item's frontmatter when it is first published and never changed afterwards. Slugs are not derived from titles, and a **Poem**'s address does not include its **Cycle**.
+Every published thing is addressed by a flat, transliterated Latin slug — `/poems/veresnevyi-doshch` — written explicitly as the item's file name (`veresnevyi-doshch.md`) when it is first published and never changed afterwards. Slugs are not derived from titles, and a **Poem**'s address does not include its **Cycle**.
 
 Three properties drove this. Slugs are **not generated from titles**, because a **Poem** may be retitled, and an untitled one is represented by a hand-picked opening fragment that the **Poet** may later revise — a derived slug would silently move the page and break every link already **Shared**. Addresses are **flat rather than nested under a Cycle**, because `CONTEXT.md` defines a **Cycle** as a grouping the **Poet** rearranges at will, including a catch-all for poems that don't yet fit; a poem moving out of the catch-all would otherwise change its permanent URL. Slugs are **transliterated Latin, not Cyrillic**, because **Share** is a first-class action here and percent-encoded Cyrillic degrades into unreadable `%D0%B2…` in messengers, mail clients and analytics — precisely where shared links are read.
 
@@ -13,5 +13,6 @@ Three properties drove this. Slugs are **not generated from titles**, because a 
 ## Consequences
 
 - Choosing a slug is a manual step when publishing. It is deliberately a decision, not a derivation.
-- Slugs must be unique across each collection; the build should fail on a duplicate rather than silently overwrite a page.
+- Slugs must be unique within each collection. Because the slug is the file name, two items in one folder cannot share it. The file name was preferred over a front-matter `slug:` field because the two could disagree, and **Cycle** lists name **Poems** by the same file name, so the list, the file and the address all read alike.
+- Renaming an item's file changes its address and is held to the same rule as any other address change.
 - Should an address ever have to change, a redirect from the old one is mandatory, not optional.

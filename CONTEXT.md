@@ -17,16 +17,26 @@ _Avoid_: User, visitor account, member
 ### Published things
 
 **Poem**:
-A work of poetry by the **Poet**, published for its own sake rather than as news about anything. Every **Poem** has its own dedicated, permanent page with a stable URL, discoverable by search engines and by the text it contains. A **Poem** may be untitled; when it is, the **Poet** hand-picks a short opening fragment (ending in "…") to stand in for a title — never a placeholder like "***", since that would make the poem undiscoverable by its own text.
+A work of poetry by the **Poet**, published for its own sake rather than as news about anything. Every **Poem** has its own dedicated, permanent page with a stable URL, discoverable by search engines and by the text it contains. A **Poem** may be untitled; when it is, the **Poet** hand-picks a short opening fragment (ending in "…") to stand in for a title — never a placeholder like "***", since that would make the poem undiscoverable by its own text. The fragment is a name for *finding* the poem, so it appears wherever a **Reader** chooses or recognises a **Poem** without seeing its text: in lists, in the links to neighbouring **Poems**, on the browser tab and in search results. It never appears next to the text itself, where it would only repeat the opening words. An untitled **Poem**'s own page has no visible heading, and its **Share** card is titled with the **Poet**'s name.
 _Avoid_: Post, article, entry
+
+A **Poem**'s text is **lines** grouped into **stanzas**, and the **Poet** writes it down exactly as it should read: every line break is his, a blank line separates stanzas, and an indented line stays indented. The only emphasis is italics. The text has no headings, lists or links. These are starting rules, revised when a real **Poem** shows they are not enough.
+
+Besides its written date, a **Poem** has a **publication date**: the Kyiv day it went on the site, set once and never rewritten. It orders the **Follow** feed but is not shown on the **Poem**'s page, where the written date is the only date, since that is the one that belongs to the poem. A **Poem** has no "updated" date: revising a line is not news, and the **Poem** does not resurface. A **Poem** is on the site or it is not: there are no drafts and no publishing scheduled for a later day, and a publication date never lies in the future. The **Poet**'s existing body of work goes on the site at launch, all on the same publication date; everything after it is new.
+
+A **Poem** may carry a **Dedication** and an **Epigraph**, each optional. Neither is part of its text. A **Dedication** is one short line naming whom the poem is for ("Мамі", "Пам'яті …") and is set under the title. An **Epigraph** is a quotation set above the first stanza, with its source when the **Poet** gives one. Because neither belongs to the text, neither counts among a **Poem**'s opening lines, so a **Share** preview or a **Pin** that falls back to the opening lines always starts with the **Poet**'s own words.
 
 **Translation**:
 The **Poet**'s rendering of another poet's poem into a different language (Ukrainian↔English, either direction) — a distinct published thing, not a **Poem**. Its page shows the **Poet**'s translation — with a translated title, body, and the date translated — followed by the original poem's title, body, original author, and optional year of publication, stored and displayed in full on the same page rather than linked out. Lives in its own dedicated list, not a **Cycle** — though the **Poet** may introduce Translation-specific cycles in the future. When a **Translation** is **Shared** or **Pinned**, its image carries only the **Poet**'s translation, always credited to the original author by name; the original text stays on the page.
 _Avoid_: Post, article, entry, Poem
 
 **Cycle**:
-A named grouping of **Poems** chosen by the **Poet**, in a manual reading order the **Poet** controls (not automatically chronological). Every **Poem** belongs to exactly one **Cycle** — poems that don't fit a thematic group go into a catch-all **Cycle** ("Інші" / "Поза циклом") rather than having no **Cycle** at all. **Translations** do not belong to a **Cycle** (for now). A **Cycle** can be marked **Finished** by the **Poet** — a display label only ("not actively growing"), not a lock; the **Poet** can still add a **Poem** to a **Finished** **Cycle** later.
+A named grouping of **Poems** chosen by the **Poet**, in a manual reading order the **Poet** controls (not automatically chronological). Every **Poem** belongs to exactly one **Cycle** — poems that don't fit a thematic group go into the catch-all **Cycle**, **Поза циклами**, rather than having no **Cycle** at all. Exactly one **Cycle** is the catch-all, marked as such rather than recognised by its name. It is not a work with a shape, so it is never **Finished** and its **Poems** have no **Roles**. A **Poem** in it is labelled simply "Поза циклами", never "З циклу «Поза циклами»", which would contradict itself. **Translations** do not belong to a **Cycle** (for now). A **Cycle** can be marked **Finished** by the **Poet** — a display label only ("not actively growing"), not a lock; the **Poet** can still add a **Poem** to a **Finished** **Cycle** later.
 _Avoid_: Category, collection, series
+
+**Role**:
+The part a **Poem** plays in its **Cycle**. Most **Poems** have no **Role** and are simply in the **Cycle**. Two are defined: a **Prologue** opens the **Cycle**'s reading order and an **Epilogue** closes it, and a **Cycle** has at most one of each. The **Role** belongs to the **Poem**'s place in the **Cycle**, not to the **Poem**, so it moves with the **Cycle**'s order and never replaces the **Poem**'s own title. The **Poet** may define more **Roles** later (a "P.S.", "Після прологу"), each with its own name and its own rule for where it may stand. A **Poem**'s page names its **Role**: "Пролог до циклу «…»", "Епілог до циклу «…»", and "З циклу «…»" when it has none.
+_Avoid_: Type, kind, position
 
 **Announcement**:
 Notice of an event the **Poet** will take part in, published before the event happens, carrying a promotional image. Has its own dedicated, permanent page, like a **Poem**.
@@ -61,15 +71,17 @@ Nothing else is embedded. A recording on Facebook, a television segment, a news 
 
 The site speaks **Ukrainian**. Navigation, section headings, the **news page**, **Announcements**, **News**, the About-me page and every other piece of chrome are written in Ukrainian only; there is no English version of the site and no parallel translated pages.
 
-Language is instead an attribute of an individual published text. A **Poem** is usually Ukrainian; a **Translation** is Ukrainian or English depending on which direction the **Poet** rendered it, and its page carries both a translated text and an original text that may be in different languages from each other. English appearing on the site is therefore the language of *some content*, never the language of the site.
+Language is instead an attribute of an individual published text. A **Poem** is always Ukrainian; a **Translation** is Ukrainian or English depending on which direction the **Poet** rendered it, and its page carries both a translated text and an original text that may be in different languages from each other. English appearing on the site is therefore the language of *some content*, never the language of the site.
 
 #### Stress marks
 
 The **Poet** may mark the stressed vowel of a word (а́, і́, …) in a **Poem** or a **Translation** — for rhythm, or to tell apart words spelled alike. A stress mark is part of the text as the **Poet** wrote it, not decoration, and is shown exactly where it was placed. It is always the Ukrainian letter itself carrying an accent, never a look-alike Latin letter (such as *í* or *á*) slipped into a Ukrainian word, since a word containing one could no longer be found by its own text.
 
+Stress marks are kept wherever the site draws the text in its own fonts: on the page and in the **Share** and **Pin** images. They are left out of the plain-text copies the site hands to others to draw in fonts it does not control, where an accent may land beside its letter: the browser tab, a **Share** card's title and description, and what search engines are told about a page. The **Follow** feed keeps them, since it carries the poem itself.
+
 ## Dates and time
 
-Every date on the site is a **Kyiv** date. A **Poem**'s written date is the day the **Poet** finished it in Kyiv; **Announcements**, **News** and **Events** are dated the same way; **Вірш дня** rolls over at midnight Kyiv, not at midnight anywhere else. There is no per-**Reader** local time anywhere on the site — a **Reader** in another country sees Kyiv dates.
+Every date on the site is a **Kyiv** date. A **Poem**'s written date is the day the **Poet** finished it in Kyiv. It is as exact as the **Poet** actually knows it: a day, as for most **Poems**, or only a month or only a year for older work. It is shown at exactly that precision ("14 березня 2012", "березень 2012", "2012") and is never filled in with a guess. Every **Poem** has at least a year. **Announcements**, **News** and **Events** are dated the same way; **Вірш дня** rolls over at midnight Kyiv, not at midnight anywhere else. There is no per-**Reader** local time anywhere on the site — a **Reader** in another country sees Kyiv dates.
 
 ### Navigation
 
@@ -110,7 +122,7 @@ Every entry in the feed — **News** and **Announcement** alike — shows the da
 ### The home page
 
 **Вірш дня** ("Poem of the day"):
-The default content of the **Hot take** page, picked automatically with no input from the **Poet**: a random **Poem** or **Translation** written/translated on today's calendar date in an earlier year; if none exists, a random one written/translated 3–9 months ago (by calendar date, any year). The pick is **stable for the whole calendar day** — every **Reader** sees the same one all day, and refreshing does not re-roll it. It is a poem *of the day*, not a shuffle.
+The default content of the **Hot take** page, picked automatically with no input from the **Poet**: a random **Poem** or **Translation** written/translated on today's calendar date in an earlier year; if none exists, a random one written/translated 3–9 months ago (by calendar date, any year). Only a date known to the day can match today's date; a date known only to the month is eligible for the 3–9-month fallback when that month lies in the window; a date known only to the year never makes its item **Вірш дня**. The pick is **stable for the whole calendar day** — every **Reader** sees the same one all day, and refreshing does not re-roll it. It is a poem *of the day*, not a shuffle.
 
 **Hot take**:
 The site's home page. Shows exactly one item at a time — never several side by side. By default that item is **Вірш дня**. The **Poet** may explicitly promote a specific **Announcement** or **News** item to the **Hot take** page, which then takes over from **Вірш дня**. Promotion ends automatically — for an **Announcement**, once its **Event** has passed; for **News**, seven days after it was published — but the **Poet** can also un-promote either one manually at any time before that.
@@ -120,7 +132,7 @@ The site's home page. Shows exactly one item at a time — never several side by
 **Share**:
 A **Reader** sending a link to a published page (**Poem**, **Translation**, **Announcement**, or **News**) to their own social media or privately to another person, via a share action on the page (e.g. native share sheet). Not counted or tracked by the site — it is only the act of invoking that action, nothing more.
 
-What arrives is a link with a preview. For a **Poem** or **Translation**, the preview shows the whole poem when it fits legibly, otherwise its opening lines. For an **Announcement** or **News** item, it is an ordinary link card with the item's own image, because there the point is getting the **Reader** to follow the link for the details.
+What arrives is a link with a preview. For a **Poem** or **Translation**, the preview shows the whole poem when it fits legibly, otherwise its opening lines. The image carries the poem's text and nothing about the page around it: no title and no date, only the **Dedication** if there is one, and the **Poet**'s name beneath the last line where the page puts the date, like a signature. A titled **Poem**'s title still arrives as the card's text, beside the image. A **Pin** uses the same layout in Pinterest's tall shape. For an **Announcement** or **News** item, it is an ordinary link card with the item's own image, because there the point is getting the **Reader** to follow the link for the details.
 
 A **Share** always carries the **permanent page** of the item itself, never the page the **Reader** happened to be looking at. Sharing from the **Hot take** page shares the **Poem**, **Translation**, **Announcement** or **News** currently shown there — with its own stable URL — not the site's home address. The **Hot take** page is a window onto an item, not a home for it.
 _Avoid_: Pin (a different action)

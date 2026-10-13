@@ -109,9 +109,23 @@ The links to the **Poet** elsewhere are **words, not icons**: a plain list in wh
 
 This is accepted subject to seeing it: the word list must be approved by eye on the built page. If it does not work, the alternative is small ink icons, optionally redrawn to suit the site, behaving like **Share** and **Pin**.
 
+## The Poem page
+
+Top to bottom: the title, the **Dedication**, the **Epigraph** with its source, the text, the written date, then **Share** and **Pin**. Below a quiet divider comes the **Poem**'s place in its **Cycle**, "З циклу «…»" (or its **Role**: "Пролог до циклу «…»", "Епілог до циклу «…»"), linking to the **Cycle**, and the way to the neighbouring **Poems**. The poem comes first, so a **Reader** arriving from a **Share** meets it before anything about where it belongs. **Share** and **Pin** sit where the reading ends, which is when a **Reader** wants to pass the poem on. The page carries no author name, since the header already gives it. An **untitled Poem** shows no heading: its text starts where a title would stand, with the same space above it. The opening fragment remains the page's heading for screen readers and search engines, just not drawn above the identical first line.
+
+The **Dedication**, the **Epigraph** and the written date are all **set to the right edge of the poem's block**, in the faded secondary ink, as a book sets them. The **Dedication** and **Epigraph** are small italic. The written date is at chrome size and comes after the last stanza, never as a byline above the poem. The way to the neighbouring **Poems** follows the **Cycle**'s reading order and **stops at the Cycle's edges**: the first **Poem** has no previous link and the last has no next, and a **Cycle** of one has neither. At the edges, the link to the **Cycle** is the way onward. Finishing a **Cycle** should feel like closing a section of a book, not drifting into the next one. Each link **names the neighbouring Poem by its title** (or opening fragment), wrapping rather than truncating, and a visited neighbour fades like any read **Poem** in a list.
+
+**Share** opens the device's own share sheet, which on a phone is where the messengers are. A browser without one, as most desktop browsers are, **copies the link** instead, and the icon confirms with "Посилання скопійовано". **Pin** is not on the page yet: a **Pin** *is* its image, and it arrives together with the **Pin** image rather than as a button pinning nothing. When it comes, it is a plain link to Pinterest, never Pinterest's own button, which reports every visit. Until the **Share** image is designed, a **Shared** **Poem** arrives as a text card: its title, with its opening lines as the description.
+
+A **Poem** rarely has both a **Dedication** and an **Epigraph**, so they are not designed to sit together. The block's width comes from the poem's lines alone. An **Epigraph** wider than that runs past the block's left edge rather than widening the poem.
+
 ## Motion
 
 **Nothing on the site moves.** Every state change is instant: a hover underline appears at once, and so does the thickening and the colour change on **Share** and **Pin**. Nothing on a printed page animates either. This is a decision, not an omission, and it holds everywhere: one component that eases while the rest snap would look like a mistake. If an instant change ever feels abrupt, a short transition on hover states is a one-line change in the theme file, and it must then be switched off under `prefers-reduced-motion`.
+
+## Script
+
+The site ships **almost no JavaScript**. A script is allowed only for an action the browser cannot do without one, such as **Share**. It is small and inline, loads no library and nothing from another server, and the page reads in full when it does not run. **Share** is the first such script.
 
 ## Theme
 
@@ -131,5 +145,6 @@ Decisions not yet made. Anything here that turns out to be *work* belongs in the
 
 - **Print.** A **Reader** printing a **Poem** or saving it as a PDF is likelier here than on most sites. With no print stylesheet they get the navigation and footer wrapped around the poem.
 - **The type scale is provisional** — see above. Revisit once real **Poems** are on the site and the poem text can be judged at its real size.
+- **Stress marks and search.** After launch, check once that a search for an unaccented phrase finds a **Poem** whose text carries stress marks. If it doesn't, revisit how marks reach search engines.
 - **Dark mode** — deferred, not rejected. Revisit if **Readers** turn out to read at night, which the site cannot itself measure.
-- **Per-page layout** — the **Poem**, **Cycle**, **News** and **Announcement** pages; how a **Photograph** and an embedded **Video** are sized and captioned; the design of the **Share** and **Pin** images. Each is its own session, and each is constrained by everything above.
+- **Per-page layout** — the **Poem**, **Cycle**, **News** and **Announcement** pages; how a **Photograph** and an embedded **Video** are sized and captioned; the visual design of the **Share** and **Pin** images (their content is settled in `CONTEXT.md`: text, **Dedication**, the **Poet**'s name as a signature; no title, date or **Epigraph**). The image renderer must pass the stress-mark test before it is adopted: such renderers need TTF/OTF rather than the web font files, and they place diacritics their own way. What signs a **Translation**'s image, given that it must credit the original author, is still owed. Each is its own session, and each is constrained by everything above.

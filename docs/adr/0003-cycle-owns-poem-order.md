@@ -6,4 +6,6 @@ The obvious alternative was `cycle:` and `order:` fields on each **Poem**. We re
 
 That single source is what makes the rule "every **Poem** belongs to exactly one **Cycle**" enforceable: the build fails if a **Poem** appears in no list or in more than one, so the catch-all **Cycle** stops being a convention and becomes a check. It is also the shape a git-backed admin panel expects, which renders an array of references as a drag-to-reorder list.
 
+A **Poem**'s **Role** in its **Cycle** (**Prologue**, **Epilogue**, or any defined later) is recorded on its entry in that same list, for the same reason: the **Role** is a fact about a place in the order, and its placement rule (a **Prologue** first, an **Epilogue** last) can only be checked against the order. The **Roles** are a fixed set kept in the code. Each one names how it reads on a page and where it may stand, so a new **Role** is one added definition and a misplaced one fails the build.
+
 **Cycles** themselves use the same shape (one manifest list) rather than an `order:` number per **Cycle**, so ordering works identically at both levels.
