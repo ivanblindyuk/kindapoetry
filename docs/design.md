@@ -117,6 +117,8 @@ The **Dedication**, the **Epigraph** and the written date are all **set to the r
 
 **Share** opens the device's own share sheet, which on a phone is where the messengers are. A browser without one, as most desktop browsers are, **copies the link** instead, and the icon confirms with "Посилання скопійовано". **Pin** is not on the page yet: a **Pin** *is* its image, and it arrives together with the **Pin** image rather than as a button pinning nothing. When it comes, it is a plain link to Pinterest, never Pinterest's own button, which reports every visit. Until the **Share** image is designed, a **Shared** **Poem** arrives as a text card: its title, with its opening lines as the description.
 
+As plain text, which is the card's description and the page's meta description, a **Poem**'s **opening lines** are its first stanza, at most four lines. The lines are joined by " / ", the way verse is quoted inline, and the text ends in "…" when anything was left out. The cut always falls between lines, never inside a word. A platform that shortens the text further does so on its own. The **Share** and **Pin** images have their own rule for what fits.
+
 A **Poem** rarely has both a **Dedication** and an **Epigraph**, so they are not designed to sit together. The block's width comes from the poem's lines alone. An **Epigraph** wider than that runs past the block's left edge rather than widening the poem.
 
 ## Motion
