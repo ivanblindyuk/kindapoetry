@@ -1,0 +1,90 @@
+---
+/**
+ * Share: the device's own share sheet, or where there is none, the link
+ * copied. It is the site's one script (docs/design.md, "Script"); without it
+ * the button stays hidden and the page reads in full.
+ */
+interface Props {
+  /** The permanent address of the item, never of the page it is shown on. */
+  path: string;
+}
+
+const { path } = Astro.props;
+---
+
+<div class="share" data-share={path}>
+  <button type="button" hidden>
+    <!-- Lucide "share-2", ISC licence: https://lucide.dev/icons/share-2 -->
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="5" r="3"></circle>
+      <circle cx="6" cy="12" r="3"></circle>
+      <circle cx="18" cy="19" r="3"></circle>
+      <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line>
+      <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line>
+    </svg>
+    <span class="label">Поділитися</span>
+  </button>
+  <span class="visually-hidden" role="status"></span>
+</div>
+
+<script is:inline>
+  (() => {
+    const LABEL = 'Поділитися';
+    const COPIED = 'Посилання скопійовано';
+    const CONFIRMATION_MS = 4000;
+    const share = document.querySelector('[data-share]');
+    if (!share || (!navigator.share && !navigator.clipboard)) return;
+    const button = share.querySelector('button');
+    const label = share.querySelector('.label');
+    const status = share.querySelector('[role="status"]');
+    const url = new URL(share.dataset.share, location.origin).href;
+
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      if (navigator.share) {
+        // A Reader closing the sheet without sharing is not an error.
+        await navigator.share({ title: document.title, url }).catch(() => {});
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      // The button itself says the link was copied; the status tells a screen reader.
+      label.textContent = COPIED;
+      status.textContent = COPIED;
+      setTimeout(() => {
+        label.textContent = LABEL;
+        status.textContent = '';
+      }, CONFIRMATION_MS);
+    });
+  })();
+</script>
+
+<style>
+  /*
+   * An outlined pill marks it as an action among the faded lines of text
+   * around it, and a Pin control will take the same shape beside it.
+   */
+  button:not([hidden]) {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--color-ink-faded);
+    border-radius: 999px;
+    background: none;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: var(--size-caption);
+    cursor: pointer;
+  }
+
+  button:hover,
+  button:focus-visible {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  svg {
+    inline-size: 1em;
+    block-size: 1em;
+  }
+</style>

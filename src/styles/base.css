@@ -44,6 +44,16 @@ a:hover {
   outline-offset: 2px;
 }
 
+/* Read by screen readers and search engines, never drawn. */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 img,
 svg,
 video {

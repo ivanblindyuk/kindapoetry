@@ -26,6 +26,10 @@ export default defineConfig({
   // absolute image address, and leave the image out until it is set (#26).
   // site: 'https://…',
   integrations: [devOnlyPages],
+  // Cycles are listed on Вірші, so trimming a Cycle's address lands there (CONTEXT.md, "Addresses").
+  redirects: {
+    '/cycles': '/poems',
+  },
   markdown: {
     processor: satteri({ hastPlugins: [externalLinks] }),
   },
