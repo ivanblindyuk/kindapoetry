@@ -22,9 +22,9 @@
    *   preferred = (phone - slope * 360)px + (slope * 100)vw
    * with px written as rem (16px = 1rem).
    */
-  --size-poem: clamp(1.0625rem, 0.9821rem + 0.3571vw, 1.25rem); /* 17 → 20px */
+  --size-poem: clamp(0.9375rem, 0.8571rem + 0.3571vw, 1.125rem); /* 15 → 18px */
   --size-prose: clamp(1rem, 0.9464rem + 0.2381vw, 1.125rem); /* 16 → 18px */
-  --size-title: clamp(1.625rem, 1.3036rem + 1.4286vw, 2.375rem); /* 26 → 38px */
+  --size-title: clamp(1.25rem, 1.0357rem + 0.9524vw, 1.75rem); /* 20 → 28px */
   --size-list-title: clamp(1.1875rem, 1.0804rem + 0.4762vw, 1.4375rem); /* 19 → 23px */
   --size-chrome: clamp(0.875rem, 0.8482rem + 0.119vw, 0.9375rem); /* 14 → 15px */
   --size-caption: clamp(0.75rem, 0.7232rem + 0.119vw, 0.8125rem); /* 12 → 13px */

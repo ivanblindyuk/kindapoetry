@@ -1,0 +1,224 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import Share from '../../components/Share.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getCatalogue } from '../../catalogue';
+import { formatDate, parseDate } from '../../dates';
+import { ROLES } from '../../roles';
+import { POET_NAME } from '../../site';
+import { openingLines, parseVerse, stripStressMarks } from '../../verse';
+
+export const getStaticPaths = (async () => {
+  const { poems } = await getCatalogue();
+  return poems.map((placed) => ({ params: { slug: placed.poem.id }, props: placed }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { poem, cycle, role, previous, next } = Astro.props;
+const { title, untitled, written, subtitle, dedication, epigraph } = poem.data;
+
+const path = `/poems/${poem.id}`;
+const stanzas = parseVerse(poem.body ?? '', poem.id);
+const writtenDate = parseDate(written);
+if (!writtenDate) throw new Error(`Poem "${poem.id}" has no valid written date`);
+
+const description = stripStressMarks(openingLines(stanzas));
+const cardTitle = untitled ? POET_NAME : stripStressMarks(title);
+const cardUrl = Astro.site ? new URL(path, Astro.site).href : undefined;
+
+const cycleLine = cycle.catchAll
+  ? cycle.name
+  : role
+    ? ROLES[role].line(cycle.name)
+    : `З циклу «${cycle.name}»`;
+---
+
+<Layout title={stripStressMarks(title)} description={description}>
+  <Fragment slot="head">
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={cardTitle} />
+    <meta property="og:description" content={description} />
+    {cardUrl && <meta property="og:url" content={cardUrl} />}
+  </Fragment>
+
+  <article class="poem">
+    <h1 class:list={['title', { 'visually-hidden': untitled }]}>{title}</h1>
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+    {dedication && <p class="dedication">{dedication}</p>}
+    {
+      epigraph && (
+        <blockquote class="epigraph">
+          <p>{epigraph.text}</p>
+          {epigraph.source && <p class="source">— {epigraph.source}</p>}
+        </blockquote>
+      )
+    }
+    <div class="text">
+      {
+        stanzas.map((stanza) => (
+          <p class="stanza">
+            {stanza.map((line) => (
+              <span class="line">{line.map(({ text, italic }) => (italic ? <em>{text}</em> : text))}</span>
+            ))}
+          </p>
+        ))
+      }
+    </div>
+    <div class="ending">
+      <p class="written"><time datetime={written}>{formatDate(writtenDate)}</time></p>
+      <p>{cycleLine}</p>
+    </div>
+    <div class="actions"><Share path={path} /></div>
+    {
+      (previous || next) && (
+        <nav class="neighbours" aria-label="Сусідні вірші">
+          <ul>
+            {previous && (
+              <li class="previous">
+                <a href={`/poems/${previous.id}`} rel="prev">← {previous.data.title}</a>
+              </li>
+            )}
+            {next && (
+              <li class="next">
+                <a href={`/poems/${next.id}`} rel="next">{next.data.title} →</a>
+              </li>
+            )}
+          </ul>
+        </nav>
+      )
+    }
+  </article>
+</Layout>
+
+<style>
+  /*
+   * The poem's block sits in the middle column, as wide as its longest line
+   * and never wider than the page. The Dedication and the Epigraph span the
+   * left column too, so one wider than the poem runs past the block's left
+   * edge rather than widening it.
+   */
+  .poem {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) fit-content(100%) minmax(0, 1fr);
+  }
+
+  .text {
+    grid-column: 2;
+  }
+
+  .title {
+    grid-column: 2 / 4;
+    margin-block-end: var(--space-5);
+  }
+
+  .subtitle,
+  .dedication,
+  .epigraph {
+    grid-column: 1 / 3;
+    justify-self: end;
+    margin-block-end: var(--space-2);
+    color: var(--color-ink-faded);
+    font-size: var(--size-chrome);
+    font-style: italic;
+  }
+
+  .subtitle,
+  .dedication {
+    text-align: end;
+  }
+
+  .epigraph p {
+    white-space: pre-line;
+  }
+
+  .epigraph .source {
+    margin-block-start: var(--space-1);
+    text-align: end;
+  }
+
+  .text {
+    font-size: var(--size-poem);
+    line-height: var(--leading-poem);
+  }
+
+  .stanza + .stanza {
+    margin-block-start: var(--space-4);
+  }
+
+  /* A line too long for the screen wraps with a hanging indent and is never shrunk. */
+  .line {
+    display: block;
+    padding-inline-start: var(--space-5);
+    text-indent: calc(-1 * var(--space-5));
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  /*
+   * The written date and the Cycle line close the poem at its block's right
+   * edge. Like the Epigraph, a line wider than the poem runs past the block's
+   * left edge rather than widening it.
+   */
+  .ending {
+    grid-column: 1 / 3;
+    justify-self: end;
+    margin-block-start: var(--space-4);
+    color: var(--color-ink-faded);
+    font-family: var(--font-display);
+    font-size: var(--size-chrome);
+    text-align: end;
+  }
+
+  /* The date is the poem's signature, in the poem's own face; the Cycle line is the site's chrome. */
+  .written {
+    font-family: var(--font-text);
+    font-style: italic;
+  }
+
+  /* Share stands apart, centred, and its outline divides the poem from the way on. */
+  .actions {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-block-start: var(--space-5);
+  }
+
+  /* Closer to the poem than the page's edges, so the way on stays in the reader's line of sight. */
+  .neighbours {
+    grid-column: 1 / -1;
+    margin-block-start: var(--space-5);
+    justify-self: center;
+    inline-size: 100%;
+    max-inline-size: 40rem;
+    font-family: var(--font-display);
+  }
+
+  .neighbours ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: 0;
+    list-style: none;
+  }
+
+  .neighbours li {
+    max-inline-size: 100%;
+  }
+
+  .next {
+    margin-inline-start: auto;
+    text-align: end;
+  }
+
+  .neighbours a {
+    color: var(--color-ink-faded);
+    font-size: var(--size-chrome);
+    text-decoration-line: none;
+  }
+
+  .neighbours a:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+  }
+</style>
